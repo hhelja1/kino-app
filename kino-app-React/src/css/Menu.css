@@ -1,0 +1,30 @@
+.Menu{
+    background-color: #151414;
+    color: whitesmoke;
+    display: grid;
+    height:10%;
+}
+.Menu_list{
+    margin:0;
+}
+.Menu_list_item{
+    display:inline-block;
+    
+    margin: 0;
+    padding: 2%;
+    border-right: 1px solid #ccc;
+}
+
+.Menu_list_item:hover{
+    cursor: pointer;
+}
+
+.Menu_list_logo{
+    
+    display:inline-block;
+    margin: 0;
+    padding: 2%;
+    border-right: 1px solid #ccc;
+    width: 20%;
+    text-align: center;
+}

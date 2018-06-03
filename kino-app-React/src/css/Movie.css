@@ -1,0 +1,24 @@
+.Movie{
+    
+    color: whitesmoke;
+    font: Verdana;
+    margin:2%;
+    text-align: center;
+    padding: 1%;
+    opacity: 0.9;
+    width:90%;
+    margin:3%;
+    height:100%;
+}
+
+.Movie_seeMore{
+    width:70%;
+    height:7%;
+    background-color: #f73c04;
+    border:none;
+    color:whitesmoke;
+}
+
+.Movie_name, .Movie_releaseDate, .Movie_duration, .Movie_getTickets{
+    margin-top: 2%;
+}
