@@ -2,7 +2,9 @@ var express = require('express');
 var mongoose = require('mongoose');
 var app = express();
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
+app.use(cors());
 var routerAPI = express.Router();
 mongoose.connect('mongodb+srv://kamilica:9rc2iokhpPAPzYNG@filmovicluster-lygx2.mongodb.net/film?retryWrites=true')
 var db = mongoose.connection;

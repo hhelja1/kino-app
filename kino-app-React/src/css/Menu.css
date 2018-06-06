@@ -1,3 +1,7 @@
+*{
+    margin:0;
+    padding:0;
+}
 .Menu{
     background-color: #151414;
     color: whitesmoke;
@@ -9,7 +13,6 @@
 }
 .Menu_list_item{
     display:inline-block;
-    
     margin: 0;
     padding: 2%;
     border-right: 1px solid #ccc;

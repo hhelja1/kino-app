@@ -16,7 +16,8 @@ var projekcijeSchema =new Schema({
     sjedista: [
         {
             brojSjedista: Number,
-            stanje: Boolean
+            stanje: Boolean,
+            rezervacija: String
         }
     ]
     
@@ -33,11 +34,53 @@ routerAPI.get('/vratiListuProjekcija', function (req, res) {
       });
 })
 
-//vratiListuProjekcija/:film
-//vratiListuProjekcija/:brojSale
+routerAPI.get('/vratiListuProjekcijaFilma/:film', function (req, res) {
 
-//rezervacija
+    var naziv = req.params.film;
+    projekcije.find({nazivFilma: naziv}, function (err, data) {
+        if (err) return handleError(err);
+        console.log(data);
+        res.send(data);
+      });
+})
 
+routerAPI.get('/vratiListuProjekcijaUSali/:sala', function (req, res) {
+
+    var broj = req.params.sala;
+    projekcije.find({brojSale: broj}, function (err, data) {
+        if (err) return handleError(err);
+        console.log(data);
+        res.send(data);
+      });
+})
+
+routerAPI.post('/rezervacija/:id/:brojSjedista', function (req, res) {
+
+    var ime = req.body.ime;
+    var prezime = req.body.prezime;
+    var id  = req.params.id;
+    var brojSjedista = req.params.brojSjedista;
+    //var opts = { runValidators: true, context: 'query', new: true };
+
+    projekcije.findOneAndUpdate({'_id': id, 'sjedista.brojSjedista':brojSjedista}, {'sjedista.$.rezervacija':ime+' '+prezime, 'sjedista.$.stanje': true}, {upsert: true}, function (err, data) {
+        if (err) return handleError(err);
+        console.log('Rezervisano.');
+        res.send('Rezervisano.');
+      });
+})
+
+routerAPI.post('/ponistavanjeRezervacije/:id/:brojSjedista', function (req, res) {
+
+    var id  = req.params.id;
+    var brojSjedista = req.params.brojSjedista;
+    //var opts = { runValidators: true, context: 'query', new: true };
+
+    projekcije.findOneAndUpdate({'_id': id, 'sjedista.brojSjedista':brojSjedista}, {'sjedista.$.rezervacija':'', 'sjedista.$.stanje': false}, {upsert: true}, function (err, data) {
+        if (err) return handleError(err);
+        console.log('Rezervacija je poništena.');
+        res.send('Rezervacija je poništena.');
+      });
+})
 app.use('/api', routerAPI);
 
 var server = app.listen(8086, function () {

@@ -9,6 +9,8 @@
     width:90%;
     margin:3%;
     height:100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .Movie_seeMore{
@@ -17,8 +19,11 @@
     background-color: #f73c04;
     border:none;
     color:whitesmoke;
+    margin: 2%;
 }
-
+.Movie_seeMore:hover{
+    cursor: pointer;
+}
 .Movie_name, .Movie_releaseDate, .Movie_duration, .Movie_getTickets{
     margin-top: 2%;
 }
