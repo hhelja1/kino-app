@@ -5,13 +5,13 @@
     grid-auto-flow: row;
     opacity: 1;
     text-align: center;
+    border: 1px solid #303030;
 }
 .MovieLibrary{
     margin-top:7%;
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 7%;
-    
 }
 .Details{
     background-color: #151414;

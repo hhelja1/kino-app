@@ -15,19 +15,13 @@ class MovieLibrary extends React.Component {
     }
     
     componentDidMount(){
-        fetch('http://192.168.2.104:8085/api/vratiListuFilmova')
+        fetch('http://localhost:8085/api/vratiListuFilmova')
         .then(function(response) {
-            /*if (!response.ok) {
-                response.json().then(function(data) {
-                console.log(response.status);
-                });        
-            }*/
             return response.json();
-        })
+        }) 
         .then(data => {
             this.setState({Movies: data});
-        })
-        
+        })    
     }
     
     handleSeeMore = (data)=>{
@@ -42,7 +36,7 @@ class MovieLibrary extends React.Component {
             <div className='MovieLibrary'>
                 
                 {this.state.showDetails ?
-                <div className="Details"><Details data = {this.state.Details} onGoBack={this.handleGoBack}/></div> : 
+                <Details data = {this.state.Details} onGoBack={this.handleGoBack}/> : 
                 <div className="MovieLibrary_grid">
                 {this.state.Movies.map((movie) =>
                     {
