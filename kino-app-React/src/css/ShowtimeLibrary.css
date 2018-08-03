@@ -8,6 +8,7 @@
     border: 1px solid #303030;
     margin: 10%;
     margin-top: 2%;
+    margin-bottom: 2%;
     padding: 1%;
 }
 
@@ -26,4 +27,20 @@
     margin-left: 10%;
     font-weight: 100;
     font-size: 80%;
+}
+
+.detBtn{
+    width:10%;
+    margin: 2%;
+    margin-top: 2%;
+    margin-left: 10%;
+    height:20%;
+    background-color: rgb(226, 65, 40);
+    border:none;
+    color:whitesmoke;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.detBtn:hover{
+    cursor: pointer;
 }

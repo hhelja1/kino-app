@@ -40,6 +40,10 @@ class ShowtimeLibrary extends React.Component {
     handleReserve = (data)=>{
         this.setState({showSeats: true, projekcija: data});
     }
+
+    onGoBack = () => {
+        this.setState({showSeats: false});
+    }
     
     render(){
 
@@ -48,12 +52,12 @@ class ShowtimeLibrary extends React.Component {
                
                {this.state.showSeats ?
                <div className="ShowtimeDetails">
-                <h3 className = "detNaziv">{this.state.projekcija.nazivFilma}</h3>
+                <h2 className = "detNaziv">{this.state.projekcija.nazivFilma}</h2>
                 <h4 className = "detSala">Sala: {this.state.projekcija.brojSale}</h4>
                 <h4 className = "detSala">Cijena: {this.state.projekcija.cijenaKarte}KM</h4>
                 <div className="Seats">
                         {this.state.projekcija.sjedista.map((s) => {
-                        return <Seat data = {s}/>
+                        return <Seat data = {s} _id={this.state.projekcija._id}/>
                         }
                     )}
                     </div>
@@ -64,6 +68,7 @@ class ShowtimeLibrary extends React.Component {
                     }
                 )}
                 </div>}
+                <button className = "detBtn" onClick = {this.onGoBack} >Idi nazad..</button>
             </div>
         );
     }

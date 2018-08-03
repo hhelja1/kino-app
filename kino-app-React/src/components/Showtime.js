@@ -9,11 +9,10 @@ class Showtime extends React.Component {
 
     render(){
         var date = new Date(this.props.data.datumProjekcije);
-        console.log(this.props.data.datumProjekcije);
         var mon = +date.getMonth() + 1;
         var d = ('0' + date.getDate()).slice(-2) + '.' + ('0' + mon).slice(-2) + '.' + date.getFullYear()+'.';
         var t = ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + 'h';
-        console.log(d);
+        
         return(
         <div className="Showtime">
             <ul className="Showtime_listH">
