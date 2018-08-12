@@ -32,7 +32,6 @@ routerAPI.get('/vratiListuFilmova', function (req, res) {
 
     film.find({}, function (err, data) {
         if (err) return handleError(err);
-        console.log(data);
         res.send(data);
       });
 })
@@ -42,7 +41,6 @@ routerAPI.get('/vratiSinopsisFilma/:naziv', function (req, res) {
     console.log(naziv);
     film.findOne({naziv: naziv}, function (err, data) {
         if (err) return handleError(err);
-        console.log(data.sinopsis);
         res.send(data.sinopsis);
       });
 })
