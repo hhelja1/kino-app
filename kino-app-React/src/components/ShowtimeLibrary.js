@@ -46,7 +46,11 @@ class ShowtimeLibrary extends React.Component {
     }
     
     render(){
-
+        var date = new Date(this.state.projekcija.datumProjekcije);
+        var mon = +date.getMonth() + 1;
+        var d = ('0' + date.getDate()).slice(-2) + '.' + ('0' + mon).slice(-2) + '.' + date.getFullYear()+'.';
+        var t = ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + 'h';
+        
         return(
             <div className='ShowtimesLibrary'>
                
@@ -54,6 +58,7 @@ class ShowtimeLibrary extends React.Component {
                <div className="ShowtimeDetails">
                 <h2 className = "detNaziv">{this.state.projekcija.nazivFilma}</h2>
                 <h4 className = "detSala">Sala: {this.state.projekcija.brojSale}</h4>
+                <h4 className = "detSala">Datum i vrijeme: {d + ' ' + t}</h4>
                 <h4 className = "detSala">Cijena: {this.state.projekcija.cijenaKarte}KM</h4>
                 <div className="Seats">
                         {this.state.projekcija.sjedista.map((s) => {
@@ -61,6 +66,7 @@ class ShowtimeLibrary extends React.Component {
                         }
                     )}
                     </div>
+                    <button className = "detBtn" onClick = {this.onGoBack} >Idi nazad..</button>
                 </div> :
                <div className='Showtimes_list'>
                 {this.state.Showtimes.map((showtime) => {
@@ -68,7 +74,7 @@ class ShowtimeLibrary extends React.Component {
                     }
                 )}
                 </div>}
-                <button className = "detBtn" onClick = {this.onGoBack} >Idi nazad..</button>
+                
             </div>
         );
     }

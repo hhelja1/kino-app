@@ -71,6 +71,19 @@ routerAPI.post('/rezervacija/:brojSjedista', function (req, res) {
       });
 })
 
+
+routerAPI.post('/dodajSjediste', function(req,res){
+    var id  = req.body.id;
+    var brSjedista = req.body.brojSjedista;
+     
+    projekcije.findOneAndUpdate({'_id': id}, {$push:{'sjedista':{'brojSjedista': brSjedista, 'stanje': false}}}, {upsert: true}, function (err, data) {
+        if (err) return handleError(err);
+        console.log('Dodano sjediste.');
+        res.send('Dodano sjediste.');
+      });
+
+})
+
 routerAPI.post('/ponistavanjeRezervacije/:id/:brojSjedista', function (req, res) {
 
     var id  = req.params.id;
